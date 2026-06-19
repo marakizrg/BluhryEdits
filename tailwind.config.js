@@ -10,8 +10,8 @@ tailwind.config = {
         slate800: '#16191F',
         slate700: '#1F232B',
         // Electric "racing" accent
-        acid:   '#ADFF2F', // neon lime
-        acidDim:'#8FD41C',
+        acid:   'rgb(67, 161, 211)', // neon lime
+        acidDim:'rgb(67, 161, 211)',
       },
       fontFamily: {
         display: ['Montserrat', 'system-ui', 'sans-serif'],

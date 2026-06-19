@@ -10,7 +10,7 @@ body { font-family: 'Inter', sans-serif; cursor: none; }
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #0A0B0D; }
 ::-webkit-scrollbar-thumb { background: #1F232B; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #ADFF2F; }
+::-webkit-scrollbar-thumb:hover { background: #1b7cd7; }
 
 /* ---- Custom cursor (desktop only, toggled off on touch via JS) ---- */
 .cursor-dot, .cursor-ring {
@@ -18,24 +18,24 @@ body { font-family: 'Inter', sans-serif; cursor: none; }
   transform: translate(-50%, -50%); border-radius: 9999px;
   mix-blend-mode: difference;
 }
-.cursor-dot  { width: 7px;  height: 7px;  background: #ADFF2F; }
+.cursor-dot  { width: 7px;  height: 7px;  background: #1b7cd7; }
 .cursor-ring {
-  width: 38px; height: 38px; border: 1.5px solid #ADFF2F;
+  width: 38px; height: 38px; border: 1.5px solid #1b7cd7;
   transition: width .18s ease, height .18s ease, background .18s ease, opacity .18s ease;
 }
 .cursor-ring.hovering { width: 60px; height: 60px; background: rgba(173,255,47,0.12); }
 
 /* ---- Logo glitch effect on hover ---- */
-.glitch { position: relative; display: inline-block; }
+.glitch { position: relative; display: inline-block;}
 .glitch::before, .glitch::after {
   content: attr(data-text); position: absolute; left: 0; top: 0;
   width: 100%; opacity: 0; clip-path: inset(0 0 0 0);
 }
 .glitch:hover::before {
-  opacity: 0.9; color: #ADFF2F; animation: glitch-top .35s steps(2) infinite;
+  opacity: 0.9; color: #1b7cd7; animation: glitch-top .35s steps(2) infinite;
 }
 .glitch:hover::after {
-  opacity: 0.9; color: #29E0FF; animation: glitch-bottom .35s steps(2) infinite;
+  opacity: 0.9; color: rgb(189, 98, 45); animation: glitch-bottom .35s steps(2) infinite;
 }
 @keyframes glitch-top {
   0%   { transform: translate(0,0);     clip-path: inset(0 0 60% 0); }
