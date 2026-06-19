@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iBluhry — High-Octane Moto Video Editing</title>
+  <meta name="description" content="Professional video editing for motorcycle content creators. Moto-vlogs, high-energy edits, and racing aesthetics that grab attention." />
+
+  <!-- Tailwind CSS via CDN + theme config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.config.js"></script>
+
+  <!-- Google Fonts: Montserrat (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-ink text-slate-200 antialiased selection:bg-acid selection:text-ink overflow-x-hidden">
+
+  <!-- Custom cursor elements -->
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================= NAVBAR ============================= -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent">
+    <nav class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <!-- Brand -->
+      <a href="#home" data-cursor class="font-display font-extrabold text-3xl tracking-tight">
+        <span class="glitch" data-text="iBluhry">i<span class="text-acid">Bluhry</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="https://instagram.com" target="_blank" rel="noopener" data-cursor
+           aria-label="Instagram"
+           class="grid place-items-center w-14 h-14 rounded-full border border-slate-700 hover:border-acid hover:text-acid transition-colors">
+          <!-- Instagram glyph -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#contact" data-cursor
+           class="grid place-items-center px-7 h-14 rounded-full bg-acid text-ink font-semibold text-lg hover:bg-acidDim transition-colors">
+          Let's Talk
+        </a>
+      </div>
+
+      <!-- Mobile menu toggle -->
+      <button id="menuBtn" data-cursor aria-label="Open menu" aria-expanded="false"
+              class="md:hidden grid place-items-center w-10 h-10 rounded-lg border border-slate-700">
+        <svg id="menuIcon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6"  x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu" class="md:hidden hidden bg-slate900/95 backdrop-blur border-t border-slate-800">
+      <div class="px-5 py-4 flex flex-col gap-1 text-base font-medium">
+        <a href="#work"    class="mobile-link py-3 px-2 rounded-lg hover:bg-slate800 hover:text-acid transition">Work</a>
+        <a href="#pricing" class="mobile-link py-3 px-2 rounded-lg hover:bg-slate800 hover:text-acid transition">Pricing</a>
+        <a href="#contact" class="mobile-link py-3 px-2 rounded-lg hover:bg-slate800 hover:text-acid transition">Contact</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="mobile-link py-3 px-2 rounded-lg hover:bg-slate800 hover:text-acid transition">Instagram ↗</a>
+        <a href="#contact" class="mobile-link mt-2 py-3 text-center rounded-full bg-acid text-ink font-semibold">Let's Talk</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================= HERO ============================= -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Background video placeholder (muted loop). Swap the <source> for a real reel. -->
+    <div class="absolute inset-0 z-0">
+      <video class="w-full h-full object-cover opacity-40" autoplay muted loop playsinline poster="">
+        <!-- <source src="reel-loop.mp4" type="video/mp4" /> -->
+      </video>
+      <!-- Fallback gradient + grid so it looks intentional without a video file -->
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/70 to-ink"></div>
+      <div class="absolute inset-0 grid-bg"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full pt-24">
+      <div class="max-w-3xl">
+        <p class="reveal inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-acid mb-6">
+          <span class="w-8 h-px bg-acid"></span> Moto Content · Video Editing
+        </p>
+
+        <h1 class="reveal font-display font-black leading-[0.95] text-5xl sm:text-6xl lg:text-7xl tracking-tight">
+          High-Octane Video Editing
+          <span class="block text-acid">That Grabs Attention.</span>
+        </h1>
+
+        <p class="reveal mt-6 text-lg sm:text-xl text-slate-400 max-w-xl">
+          I turn raw ride footage into scroll-stopping moto-vlogs, reels, and high-energy edits built to grow your channel and keep viewers locked in.
+        </p>
+
+        <div class="reveal mt-9 flex flex-col sm:flex-row gap-4">
+          <a href="#work" data-cursor
+             class="group inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-acid text-ink font-display font-bold tracking-wide hover:bg-acidDim transition-all animate-pulse-glow">
+            View My Work
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#pricing" data-cursor
+             class="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-slate-700 text-slate-200 font-display font-bold tracking-wide hover:border-acid hover:text-acid transition-colors">
+            See Pricing
+          </a>
+        </div>
+
+        <!-- Quick stat strip -->
+        <div class="reveal mt-14 grid grid-cols-3 max-w-lg gap-6 border-t border-slate-800 pt-6">
+          <div><p class="font-display font-extrabold text-2xl sm:text-3xl text-white">250+</p><p class="text-xs uppercase tracking-widest text-slate-500">Edits Delivered</p></div>
+          <div><p class="font-display font-extrabold text-2xl sm:text-3xl text-white">40M+</p><p class="text-xs uppercase tracking-widest text-slate-500">Views Generated</p></div>
+          <div><p class="font-display font-extrabold text-2xl sm:text-3xl text-white">48h</p><p class="text-xs uppercase tracking-widest text-slate-500">Avg. Turnaround</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-600 animate-bounce">
+      <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================= WORK / SHOWROOM ============================= -->
+  <section id="work" class="relative py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-acid mb-3">The Showroom</p>
+          <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tight">Selected Work</h2>
+        </div>
+        <p class="text-slate-400 max-w-sm">A mix of long-form vlogs, short-form reels, and brand pieces. Hover any frame to feel the energy.</p>
+      </div>
+
+      <!-- Responsive grid. Replace the iframe src with real YouTube/Reel embeds. -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Canyon Run — Moto Vlog</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Long-form</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">Color grade · Sound design · Dynamic cuts</p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Night City Pull — Reel</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Short-form</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">Beat-synced · Captions · Speed ramps</p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Track Day — Brand Film</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Commercial</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">Cinematic · Motion graphics · Licensed audio</p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Sunrise Ride — Cinematic</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Long-form</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">Storytelling · Drone blend · Grade</p>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Wheelie Montage — Reel</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Short-form</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">High-energy · SFX · Hard cuts</p>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
+          <div class="relative aspect-video bg-slate800 overflow-hidden">
+            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+              <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
+                <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center justify-between">
+              <h3 class="font-display font-bold text-lg">Group Ride — Recap</h3>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-slate800 text-acid font-semibold">Long-form</span>
+            </div>
+            <p class="text-sm text-slate-500 mt-1.5">Multicam · Sync · Color match</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PRICING ============================= -->
+  <section id="pricing" class="relative py-24 sm:py-32 bg-slate900/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="reveal text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-acid mb-3">Transparent Pricing</p>
+        <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tight">Pick Your Gear</h2>
+        <p class="mt-4 text-slate-400">No hidden fees. Clear deliverables. Pricing built around the way moto creators actually post.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+        <!-- Tier 1: Short-form -->
+        <div data-cursor class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate900 p-7 hover:border-slate-600 transition-colors">
+          <h3 class="font-display font-bold text-xl">Reels &amp; Shorts</h3>
+          <p class="text-sm text-slate-500 mt-1">For creators feeding the algorithm.</p>
+          <p class="mt-6 font-display font-black text-4xl">$120<span class="text-base font-medium text-slate-500">/edit</span></p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-3"><span class="text-acid">✓</span> Up to 60 seconds, vertical</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Beat-synced cuts &amp; speed ramps</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Captions &amp; sound design</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> 2 revision rounds</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> 48-hour turnaround</li>
+          </ul>
+          <a href="#contact" class="mt-7 text-center px-6 py-3 rounded-full border border-slate-700 font-display font-bold hover:border-acid hover:text-acid transition-colors">Choose Reels</a>
+        </div>
+
+        <!-- Tier 2: Full Feature (highlighted) -->
+        <div data-cursor class="reveal relative flex flex-col rounded-2xl border-2 border-acid bg-gradient-to-b from-slate900 to-ink p-7 shadow-[0_0_50px_-12px_rgba(173,255,47,0.45)] lg:-translate-y-3">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-acid text-ink text-xs font-bold uppercase tracking-widest">Most Popular</span>
+          <h3 class="font-display font-bold text-xl">Full Feature</h3>
+          <p class="text-sm text-slate-400 mt-1">The complete moto-vlog package.</p>
+          <p class="mt-6 font-display font-black text-4xl text-acid">$450<span class="text-base font-medium text-slate-500">/video</span></p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-200 flex-1">
+            <li class="flex gap-3"><span class="text-acid">✓</span> Long-form (up to 20 min)</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Cinematic color grade</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Custom motion graphics &amp; titles</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Licensed music &amp; full sound mix</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Thumbnail design included</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> 3 revision rounds</li>
+          </ul>
+          <a href="#contact" class="mt-7 text-center px-6 py-3 rounded-full bg-acid text-ink font-display font-bold hover:bg-acidDim transition-colors">Choose Feature</a>
+        </div>
+
+        <!-- Tier 3: Monthly Retainer -->
+        <div data-cursor class="reveal flex flex-col rounded-2xl border border-slate-800 bg-slate900 p-7 hover:border-slate-600 transition-colors">
+          <h3 class="font-display font-bold text-xl">Monthly Retainer</h3>
+          <p class="text-sm text-slate-500 mt-1">For channels that post consistently.</p>
+          <p class="mt-6 font-display font-black text-4xl">$1.8k<span class="text-base font-medium text-slate-500">/mo</span></p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-300 flex-1">
+            <li class="flex gap-3"><span class="text-acid">✓</span> 4 long-form edits / month</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> 8 reels / month</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Priority 24-hour turnaround</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Dedicated project board</li>
+            <li class="flex gap-3"><span class="text-acid">✓</span> Unlimited revisions</li>
+          </ul>
+          <a href="#contact" class="mt-7 text-center px-6 py-3 rounded-full border border-slate-700 font-display font-bold hover:border-acid hover:text-acid transition-colors">Choose Retainer</a>
+        </div>
+      </div>
+      <p class="reveal text-center text-sm text-slate-500 mt-8">Need something custom? <a href="#contact" class="text-acid hover:underline">Let's build a package</a> around your channel.</p>
+    </div>
+  </section>
+
+  <!-- ============================= CONTACT ============================= -->
+  <section id="contact" class="relative py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <!-- Left: pitch + socials -->
+      <div class="reveal">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-acid mb-3">Start a Project</p>
+        <h2 class="font-display font-black text-4xl sm:text-5xl tracking-tight leading-tight">Let's make your<br>footage <span class="text-acid">rip.</span></h2>
+        <p class="mt-5 text-slate-400 max-w-md">Drop the details below and I'll get back within 24 hours with a quote and timeline. Or reach out directly — whatever's faster for you.</p>
+
+        <div class="mt-9 space-y-4">
+          <a href="mailto:hello@ibluhry.com" data-cursor class="group flex items-center gap-4 p-4 rounded-xl border border-slate-800 bg-slate900 hover:border-acid transition-colors">
+            <span class="grid place-items-center w-11 h-11 rounded-lg bg-slate800 text-acid group-hover:bg-acid group-hover:text-ink transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs uppercase tracking-widest text-slate-500">Email</span>
+              <span class="block font-medium">hello@ibluhry.com</span>
+            </span>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" data-cursor class="group flex items-center gap-4 p-4 rounded-xl border border-slate-800 bg-slate900 hover:border-acid transition-colors">
+            <span class="grid place-items-center w-11 h-11 rounded-lg bg-slate800 text-acid group-hover:bg-acid group-hover:text-ink transition-colors">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </span>
+            <span>
+              <span class="block text-xs uppercase tracking-widest text-slate-500">Instagram</span>
+              <span class="block font-medium">@iBluhry</span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <form id="contactForm" class="reveal rounded-2xl border border-slate-800 bg-slate900 p-6 sm:p-8 space-y-5" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-2">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name"
+                   class="w-full rounded-lg bg-slate800 border border-slate-700 px-4 py-3 text-sm placeholder:text-slate-600 focus:outline-none focus:border-acid focus:ring-1 focus:ring-acid transition" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium mb-2">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@email.com"
+                   class="w-full rounded-lg bg-slate800 border border-slate-700 px-4 py-3 text-sm placeholder:text-slate-600 focus:outline-none focus:border-acid focus:ring-1 focus:ring-acid transition" />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="projectType" class="block text-sm font-medium mb-2">Project Type</label>
+            <select id="projectType" name="projectType" required
+                    class="w-full rounded-lg bg-slate800 border border-slate-700 px-4 py-3 text-sm focus:outline-none focus:border-acid focus:ring-1 focus:ring-acid transition">
+              <option value="" disabled selected>Select one…</option>
+              <option>Reels / Shorts</option>
+              <option>Full Feature Vlog</option>
+              <option>Monthly Retainer</option>
+              <option>Brand / Commercial</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget" class="block text-sm font-medium mb-2">Budget</label>
+            <select id="budget" name="budget" required
+                    class="w-full rounded-lg bg-slate800 border border-slate-700 px-4 py-3 text-sm focus:outline-none focus:border-acid focus:ring-1 focus:ring-acid transition">
+              <option value="" disabled selected>Select range…</option>
+              <option>Under $250</option>
+              <option>$250 – $500</option>
+              <option>$500 – $1,500</option>
+              <option>$1,500+ / Monthly</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium mb-2">Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Tell me about your channel, footage, and goals…"
+                    class="w-full rounded-lg bg-slate800 border border-slate-700 px-4 py-3 text-sm placeholder:text-slate-600 focus:outline-none focus:border-acid focus:ring-1 focus:ring-acid transition resize-none"></textarea>
+        </div>
+
+        <button type="submit" data-cursor
+                class="w-full px-6 py-3.5 rounded-full bg-acid text-ink font-display font-bold tracking-wide hover:bg-acidDim transition-colors">
+          Send It →
+        </button>
+
+        <!-- Inline status message (shown via JS) -->
+        <p id="formStatus" class="text-sm text-center hidden"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================= FOOTER ============================= -->
+  <footer class="border-t border-slate-800 py-10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="#home" class="font-display font-extrabold text-lg">i<span class="text-acid">Bluhry</span></a>
+      <p class="text-sm text-slate-500">© <span id="year"></span> iBluhry Edits. Built for the ride.</p>
+      <div class="flex items-center gap-5 text-slate-500 text-sm">
+        <a href="#work" class="hover:text-acid transition-colors">Work</a>
+        <a href="#pricing" class="hover:text-acid transition-colors">Pricing</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-acid transition-colors">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App interactivity -->
+  <script src="main.js" defer></script>
+</body>
+</html>
