@@ -78,7 +78,15 @@ if (finePointer) {
   document.body.style.cursor = 'auto';
 }
 
-// ---------- 5. Contact form (front-end validation + simulated submit) ----------
+// ---------- 5. Pricing plan → auto-fill project type ----------
+const projectTypeSelect = document.getElementById('projectType');
+document.querySelectorAll('a[data-plan]').forEach(link => {
+  link.addEventListener('click', () => {
+    projectTypeSelect.value = link.dataset.plan;
+  });
+});
+
+// ---------- 6. Contact form (front-end validation + simulated submit) ----------
 const form   = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 
@@ -99,5 +107,5 @@ form.addEventListener('submit', (e) => {
   form.reset();
 });
 
-// ---------- 6. Footer year ----------
+// ---------- 7. Footer year ----------
 document.getElementById('year').textContent = new Date().getFullYear();
