@@ -86,11 +86,11 @@ document.querySelectorAll('a[data-plan]').forEach(link => {
   });
 });
 
-// ---------- 6. Contact form (front-end validation + simulated submit) ----------
+// ---------- 6. Contact form (Formspree) ----------
 const form   = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   status.classList.remove('hidden');
 
@@ -101,10 +101,33 @@ form.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simulated success — wire this to your backend / Formspree / email service.
-  status.textContent = "Thanks! Your message is queued — I'll reply within 24h. 🏍️";
-  status.className = 'text-sm text-center text-acid';
-  form.reset();
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending…';
+
+  try {
+    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form),
+    });
+
+    if (res.ok) {
+      status.textContent = "Ευχαριστώ για το μήνυμα! Θα απαντήσω όσο το δυνατόν γρηγορότερα.";
+      status.className = 'text-sm text-center text-acid';
+      form.reset();
+    } else {
+      const data = await res.json();
+      status.textContent = data?.errors?.[0]?.message ?? 'Something went wrong. Please try again.';
+      status.className = 'text-sm text-center text-red-400';
+    }
+  } catch {
+    status.textContent = 'Network error — please check your connection and try again.';
+    status.className = 'text-sm text-center text-red-400';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send It →';
+  }
 });
 
 // ---------- 7. Footer year ----------
