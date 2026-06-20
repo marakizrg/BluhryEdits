@@ -74,7 +74,7 @@
     <!-- Background video placeholder (muted loop). Swap the <source> for a real reel. -->
     <div class="absolute inset-0 z-0">
       <video class="w-full h-full object-cover opacity-40" autoplay muted loop playsinline poster="">
-        <!-- <source src="reel-loop.mp4" type="video/mp4" /> -->
+        <source src="videos/loop.mp4" type="video/mp4" />
       </video>
       <!-- Fallback gradient + grid so it looks intentional without a video file -->
       <div class="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/70 to-ink"></div>
@@ -143,8 +143,10 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Card 1 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full" loading="lazy" src="https://www.instagram.com/reel/DR1sCnAiIXD/embed/" title="Motowear Edit" allowfullscreen></iframe>
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/motowear-edit.mp4" type="video/mp4" />
+            </video>
           </div>
           <div class="p-5">
             <div class="flex items-center justify-between">
@@ -157,9 +159,11 @@
 
         <!-- Card 2 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
-            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/night-city-pull.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink video-placeholder">
               <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
                 <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -176,9 +180,11 @@
 
         <!-- Card 3 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
-            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/track-day.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink video-placeholder">
               <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
                 <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -195,9 +201,11 @@
 
         <!-- Card 4 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
-            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/sunrise-ride.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink video-placeholder">
               <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
                 <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -214,9 +222,11 @@
 
         <!-- Card 5 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
-            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/wheelie-montage.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink video-placeholder">
               <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
                 <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>
@@ -233,9 +243,11 @@
 
         <!-- Card 6 -->
         <article data-cursor class="reveal group relative rounded-2xl overflow-hidden bg-slate900 border border-slate-800 hover:border-acid/70 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_40px_-8px_rgba(173,255,47,0.35)]">
-          <div class="relative aspect-video bg-slate800 overflow-hidden">
-            <iframe class="absolute inset-0 w-full h-full opacity-0" loading="lazy" title="Reel embed placeholder"></iframe>
-            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink">
+          <div class="relative bg-slate800 overflow-hidden" style="aspect-ratio:9/16;">
+            <video class="card-video absolute inset-0 w-full h-full object-cover" muted loop playsinline>
+              <source src="videos/group-ride.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 grid place-items-center bg-gradient-to-br from-slate800 to-ink video-placeholder">
               <div class="grid place-items-center w-16 h-16 rounded-full bg-acid/10 border border-acid/40 group-hover:scale-110 group-hover:bg-acid transition-all">
                 <svg class="w-6 h-6 text-acid group-hover:text-ink transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </div>

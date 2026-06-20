@@ -109,3 +109,24 @@ form.addEventListener('submit', (e) => {
 
 // ---------- 7. Footer year ----------
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---------- 8. Video autoplay on scroll ----------
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.25 });
+
+document.querySelectorAll('.card-video').forEach(video => {
+  // Hide the placeholder overlay once the video actually has data
+  video.addEventListener('loadeddata', () => {
+    const placeholder = video.closest('.relative')?.querySelector('.video-placeholder');
+    if (placeholder) placeholder.style.display = 'none';
+  });
+  videoObserver.observe(video);
+});
