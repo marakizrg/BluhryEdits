@@ -7,4 +7,5 @@ Open main.js:109 and replace YOUR_FORM_ID with that ID
 Once that's done, every "Send It" submission will land in your Gmail. The button also disables itself while sending to prevent double-submits, and shows a proper error if something goes wrong.
 
 - να βγει το βιντεο του διασημου και να μπει αλλο
-- κατι αλλο που μ ειπε δεν θυμαμαι
+
+- αλλαγη λεζαντων μς θαυμαστικα
