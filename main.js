@@ -78,11 +78,34 @@ if (finePointer) {
   document.body.style.cursor = 'auto';
 }
 
-// ---------- 5. Pricing plan → auto-fill project type ----------
+// ---------- 5. Pricing plan → auto-fill project type & smooth scroll ----------
 const projectTypeSelect = document.getElementById('projectType');
-document.querySelectorAll('a[data-plan]').forEach(link => {
-  link.addEventListener('click', () => {
+const contactForm = document.getElementById('contactForm');
+
+document.querySelectorAll('.pricing-select').forEach(link => {
+  link.addEventListener('click', (e) => {
+    // 1. Prevent default jump behavior
+    e.preventDefault();
+    
+    // 2. Autofill the plan type
     projectTypeSelect.value = link.dataset.plan;
+
+    // 3. Smart scroll depending on device size
+    if (window.innerWidth < 1024) { // Mobile and tablet breakpoint
+      // Get the form's position relative to the viewport + current scroll
+      const formTopPosition = contactForm.getBoundingClientRect().top + window.scrollY;
+      
+      // Leave a 90px gap at the top so the form header isn't squished against the screen edge
+      const offsetPosition = formTopPosition - 90; 
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      // On desktop, the side-by-side view works perfectly with the default layout anchor
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
   });
 });
 
