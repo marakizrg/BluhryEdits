@@ -106,7 +106,7 @@ form.addEventListener('submit', async (e) => {
   submitBtn.textContent = 'Sending…';
 
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    const res = await fetch('https://formspree.io/f/mbdvdbpl', {
       method: 'POST',
       headers: { 'Accept': 'application/json' },
       body: new FormData(form),
